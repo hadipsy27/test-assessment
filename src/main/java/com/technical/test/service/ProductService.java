@@ -1,24 +1,44 @@
 package com.technical.test.service;
 
+import com.technical.test.dto.response.PagedResponse;
+import com.technical.test.dto.response.ProductResponse;
 import com.technical.test.entity.Product;
-import com.technical.test.entity.User;
 import com.technical.test.repository.ProductRepository;
-import com.technical.test.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class ProductService {
 
-    private ProductRepository productRepository;
-    private UserService userService;
+    private final ProductRepository productRepository;
 
+    @Cacheable(
+            value = "products",
+            key = "'page:' + #page + ':size:' + #size + ':sort:' + #sortBy + ':' + #sortDir"
+    )
+    public Page<Product> getAllProducts(
+            int page,
+            int size,
+            String sortBy,
+            String sortDir
+    ) {
 
-    public Product createProduct(Product product){
-        return null;
+        Sort sort = sortDir.equalsIgnoreCase("desc")
+                ? Sort.by(sortBy).descending()
+                : Sort.by(sortBy).ascending();
 
+        Pageable pageable = PageRequest.of(page, size, sort);
+
+        System.out.println("🔥 HIT DATABASE (NOT REDIS)");
+
+        return productRepository.findAll(pageable);
     }
 }
