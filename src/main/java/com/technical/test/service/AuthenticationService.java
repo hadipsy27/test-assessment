@@ -49,12 +49,16 @@ public class AuthenticationService {
     }
 
     public User authenticate(UserLoginRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        request.getUsername(),
-                        request.getPassword()
-                )
-        );
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getUsername(),
+                            request.getPassword()
+                    )
+            );
+        } catch (Exception e) {
+            throw new RuntimeException("INVALID_CREDENTIALS");
+        }
 
         return userRepository.findByUsername(request.getUsername())
                 .orElseThrow();
