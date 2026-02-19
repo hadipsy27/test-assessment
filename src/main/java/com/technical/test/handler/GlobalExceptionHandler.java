@@ -21,6 +21,14 @@ public class GlobalExceptionHandler {
                     ));
         }
 
+        if ("Email already exists".equals(ex.getMessage())) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body(Map.of(
+                            "error", "Email already exists"
+                    ));
+        }
+
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(Map.of(

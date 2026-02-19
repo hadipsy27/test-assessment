@@ -1,17 +1,16 @@
 package com.technical.test.controller;
 
+import com.technical.test.dto.request.ProductCreateRequest;
 import com.technical.test.entity.Product;
 import com.technical.test.service.ProductService;
 import com.technical.test.util.ResponseUtil;
 import lombok.AllArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -19,7 +18,6 @@ import java.util.Map;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/products")
-@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 public class ProductController {
 
     private final ProductService productService;
@@ -49,6 +47,14 @@ public class ProductController {
                 response
         );
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/create")
+    public ResponseEntity<Object> createProduct(@RequestBody ProductCreateRequest request){
+        Object response = productService.createProduct(request);
+        return ResponseUtil.generateResponse("Success create product", HttpStatus.CREATED, response);
+    }
+
 }
 
 

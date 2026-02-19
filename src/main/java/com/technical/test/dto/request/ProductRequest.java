@@ -1,4 +1,4 @@
 package com.technical.test.dto.request;
 
-public class productRequest {
+public class ProductRequest {
 }

@@ -7,8 +7,11 @@ import com.technical.test.entity.User;
 import com.technical.test.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class AuthenticationService {
@@ -30,6 +33,13 @@ public class AuthenticationService {
     }
 
     public Object registerUser(UserRegisterRequest request) {
+
+        Optional<User> existingUserByEmail = userRepository.findByEmail(request.getEmail().toLowerCase());
+
+        if (existingUserByEmail.isPresent()) {
+            throw new RuntimeException("Email already exists");
+        }
+
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
