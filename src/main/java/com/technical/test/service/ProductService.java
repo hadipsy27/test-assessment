@@ -90,4 +90,9 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    public Object getProductById(Long id){
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+    }
+
 }

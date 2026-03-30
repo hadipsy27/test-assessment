@@ -61,6 +61,13 @@ public class ProductController {
         return ResponseUtil.generateResponse("Success update product", HttpStatus.OK, response);
     }
 
+    @PreAuthorize("hasRole('ADMIN, USER')")
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> getProductById(@PathVariable Long id){
+        Object response = productService.getProductById(id);
+        return ResponseUtil.generateResponse("Success get product", HttpStatus.OK, response);
+    }
+
 }
 
 
