@@ -2,6 +2,8 @@ package com.technical.test.service;
 
 import com.technical.test.dto.request.ProductCreateRequest;
 import com.technical.test.dto.request.ProductUpdateRequest;
+import com.technical.test.dto.response.ProductPageResponse;
+import com.technical.test.dto.response.ProductResponse;
 import com.technical.test.entity.Product;
 import com.technical.test.repository.ProductRepository;
 import lombok.AllArgsConstructor;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -23,14 +26,9 @@ public class ProductService {
 
     @Cacheable(
             value = "products",
-            key = "'page:' + #page + ':size:' + #size + ':sort:' + #sortBy + ':' + #sortDir"
+            key = "T(String).format('page:%d:size:%d:sort:%s:%s', #page, #size, #sortBy, #sortDir)"
     )
-    public Page<Product> getAllProducts(
-            int page,
-            int size,
-            String sortBy,
-            String sortDir
-    ) {
+    public ProductPageResponse getAllProduct(int page, int size, String sortBy, String sortDir) {
 
         Sort sort = sortDir.equalsIgnoreCase("desc")
                 ? Sort.by(sortBy).descending()
@@ -40,7 +38,27 @@ public class ProductService {
 
         System.out.println("🔥 HIT DATABASE (NOT REDIS)");
 
-        return productRepository.findAll(pageable);
+        Page<Product> result = productRepository.findAll(pageable);
+
+        List<ProductResponse> content = result.getContent()
+                .stream()
+                .map(p -> ProductResponse.builder()
+                        .id(p.getId())
+                        .name(p.getName())
+                        .description(p.getDescription())
+                        .price(p.getPrice())
+                        .stock(p.getStock())
+                        .category(p.getCategory())
+                        .build())
+                .toList();
+
+        return ProductPageResponse.builder()
+                .content(content)
+                .page(result.getNumber())
+                .size(result.getSize())
+                .totalElements(result.getTotalElements())
+                .totalPages(result.getTotalPages())
+                .build();
     }
 
 

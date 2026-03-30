@@ -2,12 +2,10 @@ package com.technical.test.controller;
 
 import com.technical.test.dto.request.ProductCreateRequest;
 import com.technical.test.dto.request.ProductUpdateRequest;
-import com.technical.test.entity.Product;
+import com.technical.test.dto.response.ProductPageResponse;
 import com.technical.test.service.ProductService;
 import com.technical.test.util.ResponseUtil;
 import lombok.AllArgsConstructor;
-import org.apache.coyote.Response;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -31,7 +29,7 @@ public class ProductController {
             @RequestParam(defaultValue = "asc") String sortDir
     ) {
 
-        Page<Product> products = productService.getAllProducts(
+        ProductPageResponse products = productService.getAllProduct(
                 page, size, sortBy, sortDir
         );
 
@@ -39,7 +37,7 @@ public class ProductController {
         response.put("content", products.getContent());
         response.put("totalElements", products.getTotalElements());
         response.put("totalPages", products.getTotalPages());
-        response.put("currentPage", products.getNumber());
+        response.put("currentPage", products.getPage());
         response.put("pageSize", products.getSize());
 
         return ResponseUtil.generateResponse(
