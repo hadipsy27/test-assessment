@@ -1,6 +1,7 @@
 package com.technical.test.controller;
 
 import com.technical.test.dto.request.ProductCreateRequest;
+import com.technical.test.dto.request.ProductUpdateRequest;
 import com.technical.test.entity.Product;
 import com.technical.test.service.ProductService;
 import com.technical.test.util.ResponseUtil;
@@ -53,6 +54,13 @@ public class ProductController {
     public ResponseEntity<Object> createProduct(@RequestBody ProductCreateRequest request){
         Object response = productService.createProduct(request);
         return ResponseUtil.generateResponse("Success create product", HttpStatus.CREATED, response);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Object> updateProduct(@PathVariable Long id, @RequestBody ProductUpdateRequest request){
+        Object response = productService.updateProductById(id, request);
+        return ResponseUtil.generateResponse("Success update product", HttpStatus.OK, response);
     }
 
 }
