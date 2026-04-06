@@ -2,11 +2,13 @@ package com.technical.test.service;
 
 import com.technical.test.dto.request.ProductCreateRequest;
 import com.technical.test.dto.request.ProductUpdateRequest;
+import com.technical.test.dto.response.ProductDeleteResponse;
 import com.technical.test.dto.response.ProductPageResponse;
 import com.technical.test.dto.response.ProductResponse;
 import com.technical.test.entity.Product;
 import com.technical.test.repository.ProductRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -62,6 +64,7 @@ public class ProductService {
     }
 
 
+    @CacheEvict(value = "products", allEntries = true)
     public Object createProduct(ProductCreateRequest request) {
 
         Product product = Product.builder()
@@ -75,6 +78,7 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    @CacheEvict(value = "products", allEntries = true)
     public Object updateProductById(Long id, ProductUpdateRequest request) {
 
         Product product = productRepository.findById(id)
@@ -93,6 +97,14 @@ public class ProductService {
     public Object getProductById(Long id){
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+    }
+
+    @CacheEvict(value = "products", allEntries = true)
+    public Object deleteProductById(Long id){
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+        productRepository.delete(product);
+        return new ProductDeleteResponse("Product deleted successfully");
     }
 
 }

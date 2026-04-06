@@ -13,6 +13,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<Map<String, String>> handleRuntimeException(RuntimeException ex) {
 
+        if (ex.getMessage().contains("Product not found")) {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body(Map.of(
+                            "error", ex.getMessage()
+                    ));
+        }
+
         if ("INVALID_CREDENTIALS".equals(ex.getMessage())) {
             return ResponseEntity
                     .status(HttpStatus.UNAUTHORIZED)

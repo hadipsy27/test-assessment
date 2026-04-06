@@ -2,6 +2,7 @@ package com.technical.test.controller;
 
 import com.technical.test.dto.request.ProductCreateRequest;
 import com.technical.test.dto.request.ProductUpdateRequest;
+import com.technical.test.dto.response.ProductDeleteResponse;
 import com.technical.test.dto.response.ProductPageResponse;
 import com.technical.test.service.ProductService;
 import com.technical.test.util.ResponseUtil;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -63,9 +65,16 @@ public class ProductController {
 
     @PreAuthorize("hasRole('ADMIN, USER')")
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getProductById(@PathVariable Long id){
+    public ResponseEntity<Object> getProduct(@PathVariable Long id){
         Object response = productService.getProductById(id);
         return ResponseUtil.generateResponse("Success get product", HttpStatus.OK, response);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteProduct(@PathVariable Long id){
+        ProductDeleteResponse response = (ProductDeleteResponse) productService.deleteProductById(id);
+        return ResponseUtil.generateResponse(response.getMessage(), HttpStatus.OK, new ArrayList<>());
     }
 
 }
