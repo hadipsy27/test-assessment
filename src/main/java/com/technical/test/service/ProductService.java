@@ -94,6 +94,7 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    @CacheEvict(value = "products", allEntries = true)
     public Object getProductById(Long id){
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
@@ -105,6 +106,22 @@ public class ProductService {
                 .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
         productRepository.delete(product);
         return new ProductDeleteResponse("Product deleted successfully");
+    }
+
+    @CacheEvict(value = "products", allEntries = true)
+    public Object findProductsByName(String name){
+        List<Product> products = productRepository.findByNameContainingIgnoreCase(name);
+
+        return products.stream()
+                .map(product -> ProductResponse.builder()
+                        .id(product.getId())
+                        .name(product.getName())
+                        .description(product.getDescription())
+                        .price(product.getPrice())
+                        .stock(product.getStock())
+                        .category(product.getCategory())
+                        .build())
+                .toList();
     }
 
 }

@@ -77,6 +77,13 @@ public class ProductController {
         return ResponseUtil.generateResponse(response.getMessage(), HttpStatus.OK, new ArrayList<>());
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/search")
+    public ResponseEntity<Object> getProductsByName(@RequestParam String name){
+        Object products = productService.findProductsByName(name);
+        return ResponseUtil.generateResponse("Success search products", HttpStatus.OK, products);
+    }
+
 }
 
 
