@@ -131,7 +131,7 @@ The API will be available at `http://localhost:8081`.
 
 | Method | Endpoint | Description | Role Required |
 |---|---|---|---|
-| `GET` | `/api/products` | Get all products (paginated) | ❌ Public |
+| `GET` | `/api/products` | Get all products (paginated) | ADMIN / USER |
 | `GET` | `/api/products/{id}` | Get product by ID | ADMIN / USER |
 | `GET` | `/api/products/search?name=` | Search products by name | ADMIN |
 | `POST` | `/api/products/create` | Create a new product | ADMIN |
