@@ -23,6 +23,7 @@ public class ProductController {
 
     private final ProductService productService;
 
+    @PreAuthorize("hasRole('ADMIN, USER')")
     @GetMapping
     public ResponseEntity<Object> getAllProducts(
             @RequestParam(defaultValue = "0") int page,
