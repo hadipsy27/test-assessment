@@ -1,0 +1,1185 @@
+{
+  "info": {
+    "_postman_id": "fd6dc977-04db-49ed-b49e-ecbd3c8f4307",
+    "name": "Test assessment CCD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "16762865"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"hadipsy12\",\r\n    \"email\": \"hadipsy12@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"ADMIN\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Register",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"hadi123\",\r\n    \"email\": \"hadi123@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"role\": \"ADMIN\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 03 Feb 2026 03:20:55 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"User registered successfully\",\n    \"data\": {\n        \"id\": 4,\n        \"username\": \"hadi123\",\n        \"email\": \"hadi123@gmail.com\",\n        \"role\": \"ADMIN\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\": \"hadi123\",\r\n    \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Login",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"hadi12\",\r\n    \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 03 Feb 2026 03:26:04 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"Success Login\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYWRpMTIzIiwiaWF0IjoxNzcwMDg5MTY0LCJleHAiOjE3NzAwODkyNTF9.MjEUsusatY-7MBGZpwk-9IMzIj1nVXTF0dYbFcPlUlo\",\n        \"type\": \"Bearer\",\n        \"username\": \"hadi123\",\n        \"role\": \"ADMIN\",\n        \"expiresIn\": 86400\n    }\n}"
+        },
+        {
+          "name": "Login admin",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"hadi123\",\r\n    \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 19 Feb 2026 03:58:29 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"Success Login\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYWRpMTIzIiwiaWF0IjoxNzcxNDczNTA5LCJleHAiOjE3NzE1NTk5MDl9.LO1sqjt_XTeSSICIfq3nwe9Tr1Diz-OmgE95Y7TkeYA\",\n        \"type\": \"Bearer\",\n        \"username\": \"hadi123\",\n        \"role\": \"ADMIN\",\n        \"expiresIn\": 86400000\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYWRpcHN5IiwiaWF0IjoxNzc1NjEyNjgzLCJleHAiOjE3NzU2OTkwODN9.8raZxWxWKqTMlxCsAayix01cBCuly0s9R24MBErgtQE",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_JWT_TOKEN",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/products?page=0&size=10&sortBy=id&sortDir=asc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "products"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "10"
+            },
+            {
+              "key": "sortBy",
+              "value": "id"
+            },
+            {
+              "key": "sortDir",
+              "value": "asc"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Products",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_JWT_TOKEN",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8081/api/products?page=0&size=10&sortBy=id&sortDir=asc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "10"
+                },
+                {
+                  "key": "sortBy",
+                  "value": "id"
+                },
+                {
+                  "key": "sortDir",
+                  "value": "asc"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 30 Mar 2026 03:58:30 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"Success get products\",\n    \"data\": {\n        \"content\": [\n            {\n                \"id\": 1,\n                \"name\": \"Laptop Asus ROG Strix G15\",\n                \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\n                \"price\": 18500000,\n                \"stock\": 10,\n                \"category\": \"ELECTRONICS\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Laptop Asus ROG Strix G2\",\n                \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\n                \"price\": 18500000,\n                \"stock\": 10,\n                \"category\": \"ELECTRONICS\"\n            }\n        ],\n        \"totalElements\": 2,\n        \"totalPages\": 1,\n        \"currentPage\": 0,\n        \"pageSize\": 10\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Products by Name",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYWRpMTIzIiwiaWF0IjoxNzc1NTM0NDM3LCJleHAiOjE3NzU2MjA4Mzd9.sYVJc9Qj-hdriKg1Qgl4dsqAr0fkHGu-ySdA8dD74Qk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_JWT_TOKEN",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/products/search?name=komp",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "products",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "komp"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Products by Name",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_JWT_TOKEN",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8081/api/products/search?name=kom",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "products",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "kom"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 07 Apr 2026 03:52:29 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"Success search products\",\n    \"data\": [\n        {\n            \"id\": 14,\n            \"name\": \"Komputer\",\n            \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\n            \"price\": 18500000,\n            \"stock\": 10,\n            \"category\": \"ELECTRONICS\"\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Products by Id",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYWRpcHN5IiwiaWF0IjoxNzc1NjEyNjgzLCJleHAiOjE3NzU2OTkwODN9.8raZxWxWKqTMlxCsAayix01cBCuly0s9R24MBErgtQE",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_JWT_TOKEN",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/products/15",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "products",
+            "15"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Products by Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_JWT_TOKEN",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8081/api/products/2",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "products",
+                "2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 30 Mar 2026 04:21:36 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"Success get product\",\n    \"data\": {\n        \"id\": 2,\n        \"name\": \"Laptop Asus ROG Strix G2\",\n        \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\n        \"price\": 18500000,\n        \"stock\": 10,\n        \"category\": \"ELECTRONICS\",\n        \"createdAt\": \"2026-03-30T09:57:53.341656\",\n        \"updatedAt\": \"2026-03-30T10:05:00.728277\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Products by Id",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYWRpcHN5IiwiaWF0IjoxNzc1NjEyNjgzLCJleHAiOjE3NzU2OTkwODN9.8raZxWxWKqTMlxCsAayix01cBCuly0s9R24MBErgtQE",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_JWT_TOKEN",
+            "disabled": true
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8081/api/products/15",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "products",
+            "15"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Products by Id",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer YOUR_JWT_TOKEN",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8081/api/products/9",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "products",
+                "9"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 07 Apr 2026 03:42:11 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 200,\n    \"message\": \"Product deleted successfully\",\n    \"data\": []\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYWRpcHN5IiwiaWF0IjoxNzc1NjEyNjgzLCJleHAiOjE3NzU2OTkwODN9.8raZxWxWKqTMlxCsAayix01cBCuly0s9R24MBErgtQE",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Komputer\",\r\n  \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\r\n  \"price\": 18500000,\r\n  \"stock\": 10,\r\n  \"category\": \"ELECTRONICS\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/products/create",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "products",
+            "create"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Product",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Laptop Asus ROG Strix G15\",\r\n  \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\r\n  \"price\": 18500000,\r\n  \"stock\": 10,\r\n  \"category\": \"ELECTRONICS\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/products/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "products",
+                "create"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 19 Feb 2026 04:00:14 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 201,\n    \"message\": \"Success create product\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Laptop Asus ROG Strix G15\",\n        \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\n        \"price\": 18500000,\n        \"stock\": 10,\n        \"category\": \"ELECTRONICS\",\n        \"createdAt\": \"2026-02-19T11:00:14.829766\",\n        \"updatedAt\": \"2026-02-19T11:00:14.829766\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Product",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYWRpcHN5IiwiaWF0IjoxNzc1NjEyNjgzLCJleHAiOjE3NzU2OTkwODN9.8raZxWxWKqTMlxCsAayix01cBCuly0s9R24MBErgtQE",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Komputer\",\r\n  \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\r\n  \"price\": 18500000,\r\n  \"stock\": 10,\r\n  \"category\": \"ELECTRONICS\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8081/api/products/update/16",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8081",
+          "path": [
+            "api",
+            "products",
+            "update",
+            "16"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Create Product",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Laptop Asus ROG Strix G15\",\r\n  \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\r\n  \"price\": 18500000,\r\n  \"stock\": 10,\r\n  \"category\": \"ELECTRONICS\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/products/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "products",
+                "create"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Vary",
+              "value": "Origin"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Method"
+            },
+            {
+              "key": "Vary",
+              "value": "Access-Control-Request-Headers"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "0"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "key": "Expires",
+              "value": "0"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 19 Feb 2026 04:00:14 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"status\": 201,\n    \"message\": \"Success create product\",\n    \"data\": {\n        \"id\": 1,\n        \"name\": \"Laptop Asus ROG Strix G15\",\n        \"description\": \"Laptop gaming dengan Ryzen 7, RAM 16GB, SSD 1TB, RTX 4060\",\n        \"price\": 18500000,\n        \"stock\": 10,\n        \"category\": \"ELECTRONICS\",\n        \"createdAt\": \"2026-02-19T11:00:14.829766\",\n        \"updatedAt\": \"2026-02-19T11:00:14.829766\"\n    }\n}"
+        }
+      ]
+    }
+  ]
+}
