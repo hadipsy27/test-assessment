@@ -5,7 +5,7 @@ import com.technical.test.dto.request.UserRegisterRequest;
 import com.technical.test.dto.response.LoginResponse;
 import com.technical.test.entity.User;
 import com.technical.test.entity.UserPrincipal;
-import com.technical.test.service.AuthenticationService;
+import com.technical.test.service.UserService;
 import com.technical.test.service.JwtService;
 import com.technical.test.util.ResponseUtil;
 import lombok.AllArgsConstructor;
@@ -22,17 +22,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/auth")
 public class UserController {
 
-    private AuthenticationService authenticationService;
+    private UserService userService;
     private JwtService jwtService;
 
     @PostMapping("/register")
     public ResponseEntity<Object> registerUser(@RequestBody UserRegisterRequest request){
-        return ResponseUtil.generateResponse("User registered successfully", HttpStatus.OK, authenticationService.registerUser(request));
+        return ResponseUtil.generateResponse("User registered successfully", HttpStatus.OK, userService.registerUser(request));
     }
 
     @PostMapping("/login")
     public ResponseEntity<Object> loginUser(@RequestBody UserLoginRequest request){
-        User authenticatedUser = authenticationService.authenticate(request);
+        User authenticatedUser = userService.authenticate(request);
         UserDetails userDetails = new UserPrincipal(authenticatedUser);
         String jwtToken = jwtService.generateToken(userDetails);
         LoginResponse response = LoginResponse.builder()
